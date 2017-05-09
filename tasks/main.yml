@@ -1,0 +1,28 @@
+---
+
+- include: install-redhat.yml
+  when: ansible_os_family == "RedHat"
+
+- include: install-debian.yml
+  when: ansible_os_family == "Debian"
+
+- name: Set agent configuration
+  template:
+    src: config.yml.j2
+    dest: /etc/gitwarden/gitwarden.yml
+
+- name: Check for deployment ID
+  command: grep "deployment_id" /var/lib/gitwarden/gitwarden-data.yml
+  register: gitwarden_registration_check
+  ignore_errors: yes
+
+- name: Register agent with GitWarden registry
+  command: gitwarden-agent register
+  environment:
+    GITWARDEN_API_SECRET: "{{ gitwarden_api_key_secret }}"
+  when: gitwarden_registration_check.rc != 0
+
+- name: Start service
+  service:
+    name: gitwarden-agent
+    state: started

@@ -1,0 +1,10 @@
+---
+
+# Replace the '*teams' variables below with any Github teams in your organization
+- hosts: all
+  roles:
+    - role: gitwarden-agent
+      gitwarden_teams:
+        - Developers
+      gitwarden_admin_teams:
+        - System Administrators

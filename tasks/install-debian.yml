@@ -1,0 +1,28 @@
+---
+
+- name: Install any necessary dependencies [Debian/Ubuntu]
+  apt: 
+    name: "{{ item }}" 
+    state: present 
+    update_cache: yes 
+    cache_valid_time: 3600
+  with_items:
+    - python-apt
+    - apt-transport-https
+
+- name: Import GitWarden GPG key [Debian/Ubuntu]
+  apt_key:
+    url: https://archives.gitwarden.com/gitwarden.key
+    state: present
+
+- name: Add GitWarden repository [Debian/Ubuntu]
+  apt_repository:
+    repo: deb https://archives.gitwarden.com/deb squeeze main
+    state: present
+
+- name: Install gitwarden-agent package [Debian/Ubuntu]
+  apt: 
+    name: gitwarden-agent
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600

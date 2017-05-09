@@ -1,0 +1,56 @@
+galaxy_info:
+  author: Ross McDonald
+  description: Role for installing the GitWarden agent, used for syncing Linux users with Github teams
+  company: Summonry Labs
+  license: Apache
+  min_ansible_version: 1.2
+  platforms:
+  - name: Fedora
+    versions:
+      - all
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+  - name: Amazon
+    versions:
+      - all
+      - 2013.03
+      - 2013.09
+      - 2016.03
+      - 2016.09
+  - name: Ubuntu
+    versions:
+      - precise
+      - quantal
+      - raring
+      - saucy
+      - trusty
+      - utopic
+      - vivid
+      - wily
+      - xenial
+      - yakkety
+  - name: Debian
+    versions:
+      - jessie
+      - squeeze
+      - stretch
+      - wheezy
+  - name: EL
+    versions:
+      - 6
+      - 7
+
+  galaxy_tags:
+    - user-management
+    - linux
+    - security
+
+dependencies: []

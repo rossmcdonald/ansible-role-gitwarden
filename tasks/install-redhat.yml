@@ -1,0 +1,11 @@
+---
+
+- name: Add GitWarden repository file [RHEL/CentOS]
+  template:
+    src: gitwarden.repo.j2
+    dest: /etc/yum.repos.d/gitwarden.repo
+
+- name: Install gitwarden-agent package [RHEL/CentOS]
+  yum: 
+    name: gitwarden-agent
+    state: latest

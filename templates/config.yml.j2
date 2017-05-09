@@ -1,0 +1,8 @@
+# Generated with Ansible: https://github.com/gitwarden/ansible-role-gitwarden-agent
+
+api_key: {{ gitwarden_api_key_id }}
+
+teams:
+{{ gitwarden_teams | to_nice_yaml }}
+admin_teams:
+{{ gitwarden_admin_teams | to_nice_yaml }}
