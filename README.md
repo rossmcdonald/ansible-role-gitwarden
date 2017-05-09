@@ -58,7 +58,7 @@ Here is a small example of how to use the role:
 ```yaml
     - hosts: servers
       roles:
-         - gitwarden.gitwarden-agent
+         - role: gitwarden.gitwarden-agent
            gitwarden_api_key_id: MYAPIKEYID
            gitwarden_api_key_secret: MYAPIKEYSECRET
            gitwarden_teams:
